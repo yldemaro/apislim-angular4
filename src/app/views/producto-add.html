@@ -1,0 +1,50 @@
+<h3>{{titulo}}</h3>
+<hr/>
+
+<form #formProducto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-producto">
+
+	<label>
+		Nombre del Vendedor
+		<span *ngIf="!nombre_vendedor.valid && nombre.touched" class="label label-danger">El nombre del vendedor es obligatorio</span>
+	</label>
+	<input type="text" #nombre_vendedor="ngModel" name="nombre_vendedor" [(ngModel)]="producto.nombre_vendedor" class="form-control" required />
+
+	<label>
+		Estado del Vendedor
+		<span *ngIf="!estado_vendedor.valid && nombre.touched" class="label label-danger">El estado del vendedor es obligatorio</span>
+	</label>
+	<input type="text" #estado_vendedor="ngModel" name="estado_vendedor" [(ngModel)]="producto.estado_vendedor" class="form-control" required />
+
+	<label>
+		Numero de Telefono del Vendedor
+		<span *ngIf="!numero_telf.valid && nombre.touched" class="label label-danger">El numero del vendedor es obligatorio</span>
+	</label>
+	<input type="text" #numero_telf="ngModel" name="numero_telf" [(ngModel)]="producto.numero_telf" class="form-control" required />
+
+	<label>
+		Nombre del Producto
+		<span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre del producto es obligatorio</span>
+	</label>
+	<input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" class="form-control" required />
+
+	<label>
+		Descripción del Producto
+		<span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">La descripción es obligatorio</span>
+	</label>
+	<textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" class="form-control" required></textarea>
+
+	<label>
+		Precio del Producto
+		<span *ngIf="!precio.valid && precio.touched" class="label label-danger">El precio no es correcto</span>
+	</label>
+	<input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" class="form-control" required pattern="[0-9]+"/>
+
+	<label>Imagen</label>
+	<div *ngIf="is_edit">
+		<img src="http://localhost/curso-angular4-backend/uploads/{{producto.imagen}}" width="60"/>
+	</div>
+	<input type="file" class="form-control" (change)="fileChangeEvent($event)"/>
+
+	<br/>
+	<input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success"/>
+</form>

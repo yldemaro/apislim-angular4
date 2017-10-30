@@ -1,0 +1,33 @@
+<h3>{{titulo}}</h3>
+<hr/>
+
+<div *ngIf="!empleado">
+  Cargando listado de Empleados..............
+</div>
+
+<div *ngIf="empleado">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-4"  *ngFor="let empleados of empleado">
+        <div class="thumbnail">
+          <div *ngIf="empleados.imagen" class="imagen_container">
+            <img src="http://localhost/curso-angular4-backend/uploads/{{empleados.imagen}}" class="producto_imagen"/>
+          </div>
+          <div *ngIf="!empleados.imagen">
+            <div class="imagen_relleno"></div>
+          </div>
+          <div class="caption" style="text-align: center;">
+            <h3>{{empleados.nombre}}</h3>
+            <p>{{empleados.apellido}}</p>
+            <p>{{empleados.carrera}}</p>
+
+            <div>
+              <a [routerLink]="['/empleado', empleados.id]" class="btn btn-md btn-primary">Ver</a>
+              <a [routerLink]="['/empleado', empleados.id]" class="btn btn-md btn-warning">Editar</a>
+              <a [routerLink]="['/empleado', empleados.id]" class="btn btn-md btn-danger">Borrar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

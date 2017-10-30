@@ -10,11 +10,9 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home.component';
 import { ErrorComponent } from './components/error.component';
-import { EmpleadoComponent } from './components/empleado.component';
 import { ProductosListComponent } from './components/productos-list.component';
 import { ProductoAddComponent } from './components/producto-add.component';
 import { ProductoDetailComponent } from './components/producto-detail.component';
-import { ProductoEditComponent } from './components/producto-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +21,7 @@ import { ProductoEditComponent } from './components/producto-edit.component';
     ErrorComponent,
     ProductosListComponent,
     ProductoAddComponent,
-    ProductoDetailComponent,
-    EmpleadoComponent,
-    ProductoEditComponent
+    ProductoDetailComponent
   ],
   imports: [
     BrowserModule,
